@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `Audiobook` (
   `title` VARCHAR(45) NOT NULL,
   `description` VARCHAR(45) NULL,
   `author` VARCHAR(45) NOT NULL,
+  `narrator` VARCHAR(45) NULL,
   `length` VARCHAR(45) NULL,
   `release_date` DATE NULL,
   PRIMARY KEY (`id`))
@@ -46,7 +47,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `audiobookdb`;
-INSERT INTO `Audiobook` (`id`, `title`, `description`, `author`, `length`, `release_date`) VALUES (1, 'hp', NULL, 'jk', NULL, NULL);
+INSERT INTO `Audiobook` (`id`, `title`, `description`, `author`, `narrator`, `length`, `release_date`) VALUES (1, 'hp', NULL, 'jk', NULL, NULL, NULL);
 
 COMMIT;
 
