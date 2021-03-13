@@ -6,18 +6,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MVC Video Store</title>
+<title>Audiobooks</title>
 </head>
 <body>
-<h3>Find Film by Id</h3>
-<form action="getFilm.do" method="GET">
-  Film ID: <input type="text" name="fid" />
-  <input type="submit" value="Show Film" />
-</form>
+
+<div>
+	<h3>Find book by Id</h3>
+	<form action="getBook.do" method="GET">
+	  Audiobook ID: <input type="text" name="fid" />
+	  <input type="submit" value="Show Audiobook" />
+	</form>
+</div>
+
+<div>
+	<h3>View books in the Library</h3>
+	<a href ="list.do">View Library</a>
+</div>
 
 
 <!-- Make the list of films  -->
-<table>
+
+
+
 
 <thead>
 </thead>
@@ -30,7 +40,6 @@
 
 </tbody>
 
-</table>
 
 
 

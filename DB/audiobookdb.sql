@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `Audiobook` ;
 CREATE TABLE IF NOT EXISTS `Audiobook` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(45) NOT NULL,
-  `description` VARCHAR(45) NULL,
+  `description` VARCHAR(1000) NULL,
   `author` VARCHAR(45) NOT NULL,
   `narrator` VARCHAR(45) NULL,
   `length` VARCHAR(45) NULL,
@@ -47,7 +47,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `audiobookdb`;
-INSERT INTO `Audiobook` (`id`, `title`, `description`, `author`, `narrator`, `length`, `release_date`) VALUES (1, 'hp', NULL, 'jk', NULL, NULL, NULL);
+INSERT INTO `Audiobook` (`id`, `title`, `description`, `author`, `narrator`, `length`, `release_date`) VALUES (1, 'Ready Player Two: A Novel', 'The highly anticipated sequel to the beloved worldwide best seller Ready Player One, the near-future adventure that inspired the blockbuster Steven Spielberg film....', 'Ernest Cline', 'Wil Wheaton', '826', '2020-11-24');
 
 COMMIT;
 

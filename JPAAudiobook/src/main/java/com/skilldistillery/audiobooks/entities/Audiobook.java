@@ -21,7 +21,8 @@ public class Audiobook {
 	private String author;
 	private String narrator;
 	private Double length;
-	@Column(name="release_date")
+	
+	@Column(name= "release_date")
 	private LocalDate releaseDate;
 
 	public Audiobook() {}
@@ -72,6 +73,16 @@ public class Audiobook {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	
+	
+	public LocalDate getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(LocalDate releaseDate) {
+		this.releaseDate = releaseDate;
 	}
 
 	@Override
