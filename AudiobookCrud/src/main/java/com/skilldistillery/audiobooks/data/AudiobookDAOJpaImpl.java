@@ -33,22 +33,22 @@ public class AudiobookDAOJpaImpl implements AudiobookDAO {
 	}
 
 	@Override
-	public Audiobook create(Audiobook audiobook) {
+	public Audiobook create(Audiobook a) {
 		EntityManager em = emf.createEntityManager();
 
 		em.getTransaction().begin();
 
-		System.out.println("Audiobook data before persost:" + audiobook);
-		em.persist(audiobook);
+		System.out.println("Audiobook data before persost:" + a);
+		em.persist(a);
 	
 		em.flush();
-		System.out.println("Audiobook data after persost:" + audiobook);
+		System.out.println("Audiobook data after persost:" + a);
 		
 		em.getTransaction().commit();
 
 		// return the Customer object
 		em.close();
-		return audiobook;
+		return a;
 	}
 
 	@Override

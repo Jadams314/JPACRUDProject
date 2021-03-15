@@ -8,10 +8,42 @@
 </head>
 <body>
 
-<h1>Audiobook Details</h1>
+
 <div>
-  <h5>${audiobook.title} (Release Date ${audiobook.releaseDate}, Length ${audiobook.length} min)</h5>
-  <p>${audiobook.description}</p>
+	<table border="1" >
+		<thead>
+		</thead>
+		<tr>
+			<td>Title</td>
+			<td>Description</td>
+			<td>Author</td>
+			<td>Narrator</td>
+			<td>Length</td>
+			<td>Release Date</td>
+		</tr>
+		<tr>
+			<td>${audiobook.title}</td>
+			<td>${audiobook.description}</td>
+			<td>${audiobook.author}</td>
+			<td>${audiobook.narrator}</td>
+			<td>${audiobook.length}</td>
+			<td>${audiobook.releaseDate}</td>
+		</tr>
+	</table>
+
+</div>
+<div>
+	<form action="destroy.do" method="POST">
+      <input type="hidden" name="bookid" value="${audiobook.id}">
+      <input type="submit" value="Delete Book">
+    </form>
+</div>
+<br>
+<div>
+	<form action="update.do" method="POST">
+      <input type="hidden" name="bookid" value="${audiobook}">
+      <input type="submit" value="Update Book">
+    </form>
 </div>
 
 </body>

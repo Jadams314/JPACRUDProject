@@ -23,6 +23,9 @@
 	<a href ="list.do">View Library</a>
 </div>
 
+<div>
+	<a href ="creation.do">Add a film</a>
+</div>
 
 <!-- Make the list of films  -->
 
