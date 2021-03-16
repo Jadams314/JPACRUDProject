@@ -1,13 +1,20 @@
 package com.skilldistillery.audiobooks.controllers;
 
+import java.beans.PropertyEditorSupport;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.audiobooks.data.AudiobookDAO;
@@ -53,24 +60,38 @@ public class AudiobookController {
 		return "index";
 	}
 	
-//	@RequestMapping(path="goToUpdatePage.do", params = "filmid")
-//	public ModelAndView goToUpdate(Integer filmid) {
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("WEB-INF/views/updateFilm.jsp");
-//		mv.addObject(filmDAO.findFilmById(filmid));
-//		return mv;
-//	}
-//	
-//	@RequestMapping(path="UpdateFilm.do", method= RequestMethod.POST)
-//		filmDAO.updateFilm(film);
-//		ModelAndView mv = new ModelAndView();
-//		redir.addFlashAttribute("film", film);
-//		mv.setViewName("redirect:filmUpdated.do");
-//		return mv;
-//	}
-//	@RequestMapping(path="filmUpdated.do", method= RequestMethod.GET)
-//	public String refreshFilm(Model model) {
-//		return "WEB-INF/views/Film.jsp";
-//	}
+	@RequestMapping(path = "update.do", params = "bookid", method = RequestMethod.GET)
+	public String goToUpdatePage(Integer bookid, Model model) {
+		Audiobook ab = dao.findById(bookid);
+		model.addAttribute("audiobook", ab);
+		return "Audiobook/updateBook";
+	}
+	
+	@RequestMapping(path = "bookUpdated.do",  method = RequestMethod.POST)
+	public String updateBook(Audiobook book, Model model, RedirectAttributes redir) {
+		dao.update(book.getId(), book);
+		model.addAttribute("audiobook", book);
+		return "Audiobook/show";
+	}
+	
+	
+	// Converts String dates to LocalDate
+	
+	@InitBinder
+	public void initBinder(WebDataBinder webDataBinder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setLenient(true);
+		webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+		webDataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
+			@Override
+			public void setAsText(String text) throws IllegalArgumentException {
+				setValue(LocalDate.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+			}
+			@Override
+			public String getAsText() throws IllegalArgumentException {
+				return DateTimeFormatter.ofPattern("yyyy-MM-dd").format((LocalDate) getValue());
+			}
+		});
+	}
 	
 }

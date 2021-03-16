@@ -14,15 +14,14 @@
       <label for="description">Description:</label>
       <input type="text" name="description">
       <br>
-      <br>
       <label for="author">Author</label>
       <input type="text" name="author">
       <br>
       <label for="narrator">Narrator</label>
       <input type="text" name="narrator">
       <br>
-      <label for="releaseYear">Release Year:</label>
-      <input type="text" name="releaseYear">
+      <label for="releaseDate">Release Date:</label>
+      <input type="date" name="releaseDate">
       <br>
       <label for="length">Length in Minutes:</label>
       <input type="text" name="length">

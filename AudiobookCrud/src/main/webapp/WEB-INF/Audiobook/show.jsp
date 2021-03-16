@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<a href="home.do">Go Home</a>
 
 <div>
 	<table border="1" >
@@ -40,8 +41,8 @@
 </div>
 <br>
 <div>
-	<form action="update.do" method="POST">
-      <input type="hidden" name="bookid" value="${audiobook}">
+	<form action="update.do" method="GET">
+      <input type="hidden" name="bookid" value="${audiobook.id}">
       <input type="submit" value="Update Book">
     </form>
 </div>

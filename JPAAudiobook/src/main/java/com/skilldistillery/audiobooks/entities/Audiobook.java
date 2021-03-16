@@ -84,6 +84,10 @@ public class Audiobook {
 	public void setReleaseDate(LocalDate releaseDate) {
 		this.releaseDate = releaseDate;
 	}
+	
+	public void parsDate(String s) {
+		this.releaseDate = LocalDate.parse(s);
+	}
 
 	@Override
 	public String toString() {

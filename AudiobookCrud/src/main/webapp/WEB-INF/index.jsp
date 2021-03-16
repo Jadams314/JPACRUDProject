@@ -24,27 +24,8 @@
 </div>
 
 <div>
-	<a href ="creation.do">Add a film</a>
+	<a href ="creation.do">Add an Audiobook</a>
 </div>
-
-<!-- Make the list of films  -->
-
-
-
-
-<thead>
-</thead>
-<tbody>
-		<c:forEach var="film" items="${filmList}">
-		<tr>
-		<td><a href="getFilm.do?fid=${film.id}">${film.title}</a></td>
-		</tr>
-		</c:forEach>
-
-</tbody>
-
-
-
 
 
 </body>

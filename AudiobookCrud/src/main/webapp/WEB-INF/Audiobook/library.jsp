@@ -11,13 +11,13 @@
 <body>
 <h1>Welcome to the Library</h1>
 
-	<ol>	
-		<c:forEach var="list" items="${bookList}">
+		<ol>	
+			<c:forEach var="list" items="${bookList}">
+			
+			<li> <a href="getBook.do?bid=${list.id}">${list.title}</a></Li>
+			
+			</c:forEach>
+		</ol>
 		
-		<li> <a href="getBook.do?bid=${list.id}">${list.title}</a><Li>
-		
-		</c:forEach>
-	</ol>
-
 </body>
 </html>
