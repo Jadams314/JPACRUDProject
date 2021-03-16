@@ -7,6 +7,7 @@
 <title>Audiobook creation</title>
 </head>
 <body>
+<h3>Add a new book</h3>
    <form action="create.do"" method="POST">
       <label for="title">Title:</label>
       <input type="text" name="title" required>

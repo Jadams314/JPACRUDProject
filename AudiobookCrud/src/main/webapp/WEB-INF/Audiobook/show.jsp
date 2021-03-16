@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Audio Details</title>
+<title>Audiobook Details</title>
 </head>
 <body>
 
