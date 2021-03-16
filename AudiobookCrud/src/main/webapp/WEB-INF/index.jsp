@@ -13,7 +13,7 @@
 <div>
 	<h3>Find book by Id</h3>
 	<form action="getBook.do" method="GET">
-	  Audiobook ID: <input type="text" name="fid" />
+	  Audiobook ID: <input type="text" name="bid" />
 	  <input type="submit" value="Show Audiobook" />
 	</form>
 </div>
