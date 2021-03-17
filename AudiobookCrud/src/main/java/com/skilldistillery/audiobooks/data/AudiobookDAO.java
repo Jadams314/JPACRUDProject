@@ -10,4 +10,5 @@ public interface AudiobookDAO {
 	public Audiobook create(Audiobook audiobook);
 	public Audiobook update(int id, Audiobook audiobook);
 	public boolean destroy(int id);
+	List<Audiobook> findByAuthor(String search);
 }

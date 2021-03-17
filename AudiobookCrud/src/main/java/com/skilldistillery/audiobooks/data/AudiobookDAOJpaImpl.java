@@ -1,6 +1,6 @@
 package com.skilldistillery.audiobooks.data;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -24,6 +24,27 @@ public class AudiobookDAOJpaImpl implements AudiobookDAO {
 	@Override
 	public Audiobook findById(int bookId) {
 		return em.find(Audiobook.class, bookId);
+	}
+	@Override
+	public List<Audiobook> findByAuthor(String search) {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("%"+search+"%");
+		
+		String query = "SELECT a FROM Audiobook a WHERE a.author Like  :search";
+		EntityManager em = emf.createEntityManager();
+		List<Object> results = em.createQuery(query, Object.class)
+		.setParameter("search", sb.toString())
+		.getResultList();
+		
+		List<Audiobook> list = new ArrayList<>();
+		
+		results.stream().forEach(x -> list.add((Audiobook)x));
+		
+		return list;
+		
+		
 	}
 
 	@Override

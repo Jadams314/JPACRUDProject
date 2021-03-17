@@ -41,6 +41,12 @@ public class AudiobookController {
 		model.addAttribute("audiobook", ab);
 		return "Audiobook/show";
 	}
+	@RequestMapping(path = "getAuthor.do")
+	public String showFilm(String search, Model model) {
+		List<Audiobook> ab = dao.findByAuthor(search);
+		model.addAttribute("bookList", ab);
+		return "Audiobook/library";
+	}
 
 	@RequestMapping(path = "list.do")
 	public String listBooks(Model model) {
